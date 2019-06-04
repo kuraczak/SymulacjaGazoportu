@@ -1,4 +1,5 @@
-im=imread("mapka.png");
+name="mapka_s100";
+im=imread(name+".png");
 rury=[255;255;255];
 
 y=size(im,2)
@@ -9,23 +10,27 @@ for xx=1:x
     for yy=1:y
         rgb=[im(xx,yy,1); im(xx,yy,2); im(xx,yy,3)];
         if  rgb==[0;0;0]             
-                map(xx,yy)=0; %droga do inspekcji
+                map(xx,yy)=0; %rurociÄ…g
         elseif rgb==[0;255;0]
-            map(xx,yy)=2; %obszar zagro¿ony
+            map(xx,yy)=2; %obszar bezpieczny
         elseif rgb==[255;0;0]
             map(xx,yy)=3; %zbiornik
          elseif rgb==[255;255;255]
             map(xx,yy)=4; %budynek
          elseif rgb==[0;255;0]
-            map(xx,yy)=5; %obszar zagro¿ony
+            map(xx,yy)=5; %obszar zagroÅ¼ony
          elseif rgb==[255;255;0]
-            map(xx,yy)=6; %obszar ³adowania
+            map(xx,yy)=6; %droga dojazdu do Å‚adowania
          elseif rgb==[0;255;255]
-            map(xx,yy)=7; %droga dojazdu do ³adowania
+            map(xx,yy)=7; %obszar Å‚adowania 
+         elseif rgb==[255;0;255]
+            map(xx,yy)=7; %punkt kontrolny            
+        else
+            map(xx,yy)=2; 
         end
                 
 
     end
 end
 imshow(map,[]);
-csvwrite('matrix.csv',map);
+csvwrite(name+'.csv',map);
