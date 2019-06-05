@@ -22,13 +22,13 @@ class Robot:
     def calculate_path(self):
         if len(self.visited_points) != len(self.checkpoints):
             next_point = self.checkpoints[len(self.visited_points)]
-            path_to_point = BFS(self.pos, next_point)
-            path_to_battery = BFS(next_point, self.start_position)
+            path_to_point = BFS(self.pos, next_point, map)
+            path_to_battery = BFS(next_point, self.start_position, map)
 
             if len(path_to_battery) + len(path_to_point) < self.battery:
                 self.current_path = path_to_point
             else:
-                self.current_path = BFS(self.pos, self.start_position)
+                self.current_path = BFS(self.pos, self.start_position,map)
 
 
         
