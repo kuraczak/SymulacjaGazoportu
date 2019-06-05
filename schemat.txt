@@ -1,26 +1,26 @@
 class robot
-    +szybkość
-    +pojemnosc_aku
-    +czas_ladowania_aku
-    +aktualna_pozycja(x,y)
-    +pozycja_respawnu(w obszarze pkt ładowania)
-    +lista_do_sprawdzenia
+    +speed
+    +accu_capacity
+    +accu_battery_charge_time
+    +pos(x,y)
+    +start_pos(w obszarze pkt ładowania)
+    +check_points_list
     +current_path
     -next_step()
         zmienia pixel na kolejny, jak ostatni to sym.calculate_path(...)
         
 
 class symulacja
-    +mapa
-    +roboty
-    +czas
-    +f_gotowe
-    -konstruktor(map.csv, ilosc,robotów, ilosc_stacji, szybkosc, pojemnosc, czas_ladowania)
+    +map
+    +robots
+    +time
+    -constructor(map, number_of_robots, number_of_charge_stations, speed, accu_capacity, accu_batery_charge_time)
         pkt2robot()
-        ustawienie aktualna_pozycja na najbliższa przyp. pkt2robot
-        wyliczenie calculate.path dla każdego
-    -calculate_path(p, robot)
+        ustawienie start_pos na najbliższa przyporządkowanym punktom 
+        wyliczenie calculate.path dla pierwszego punktu
+    -calculate_path(p, robot)   
         sprawdza czy wystarczy aku na trasę i wyznacza ją: (kolejny punkt -> ladowanie), jak nie to trasa (aktualna_pozycja-> najbliższe ładowanie)
+        //zwraca listę wspórzędnych 1->[x,y], 2->[x,y] itp
     -show()
         pokazanie mapy
         pokazanie aktualnej pozycji robotów
@@ -39,3 +39,5 @@ class symulacja
                 show()
                 wait()
                 czas++
+
+                
