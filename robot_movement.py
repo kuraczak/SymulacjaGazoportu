@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+from IPython import display
+import time
 
 
 maze = pd.read_csv('mapka_s101.csv').values
@@ -31,20 +33,18 @@ def move_robot(rob_pos, road_matrix):
             robot_surrounding.append(road_matrix[rob_pos[0]+i][rob_pos[1]+j])
             movement_values.append([i, j])
 
-best_field = 4
+    best_field = 4
     
     for field, i in enumerate(robot_surrounding):
         if i == 1:
             best_field = field
 
-return list( map(add, rob_pos, movement_values[best_field]) )
+    return list( map(add, rob_pos, movement_values[best_field]) )
 
 
 
 
 
-from IPython import display
-import time
 
 rob_pos = [23, 116]
 rob_pos_2 = [252, 20]
@@ -62,7 +62,7 @@ for i in range(15):
     maze[rob_pos_2[0], rob_pos_2[1]] = 8
     
     #Update screen
-    plt.imshow(maze)
+    sns.heatmap(maze, cbar = False)
     display.clear_output(wait=True)
     display.display(plt.gcf())
     time.sleep(1.0)
@@ -80,15 +80,15 @@ for i in range(15):
             robot_surrounding.append(road_matrix[rob_pos[0]+i][rob_pos[1]+j])
             movement_values.append([i, j])
 
-best_field = 4
+    best_field = 4
     
     for field, i in enumerate(robot_surrounding):
         if i == 1:
             best_field = field
 
-rob_pos = list( map(add, rob_pos, movement_values[best_field]) )
+    rob_pos = list( map(add, rob_pos, movement_values[best_field]) )
 
-    
+
     robot_surrounding = []
     movement_values = []
     
@@ -97,13 +97,15 @@ rob_pos = list( map(add, rob_pos, movement_values[best_field]) )
             robot_surrounding.append(road_matrix[rob_pos_2[0]+i][rob_pos_2[1]+j])
             movement_values.append([i, j])
 
-best_field = 4
+    best_field = 4
     
     for field, i in enumerate(robot_surrounding):
         if i == 1:
             best_field = field
 
-rob_pos_2 = list( map(add, rob_pos_2, movement_values[best_field]) )
+    rob_pos_2 = list( map(add, rob_pos_2, movement_values[best_field]) )
+
+
 
 
 
