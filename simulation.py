@@ -30,5 +30,5 @@ class Simulation:
             for robot in self.robots:
                 robot.next_step()
                 show()
-                wait()
+                sleep(1)
                 self.simulationTime += 1
