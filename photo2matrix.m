@@ -24,7 +24,7 @@ for xx=1:x
          elseif rgb==[0;255;255]
             map(xx,yy)=7; %obszar ładowania 
          elseif rgb==[255;0;255]
-            map(xx,yy)=7; %punkt kontrolny            
+            map(xx,yy)=8; %punkt kontrolny            
         else
             map(xx,yy)=2; 
         end
