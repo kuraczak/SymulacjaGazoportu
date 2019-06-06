@@ -1,4 +1,4 @@
-name="mapka_s100";
+name="mapka_s111";
 im=imread(name+".png");
 rury=[255;255;255];
 
