@@ -27,8 +27,8 @@ class Simulation:
     def step(self):
         result = checkIfReady()
         while(!ready):
+            show()
             for robot in self.robots:
                 robot.next_step()
-                show()
                 sleep(1)
                 self.simulationTime += 1
