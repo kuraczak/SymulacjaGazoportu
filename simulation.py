@@ -43,7 +43,3 @@ if __name__ == '__main__':
     sim.step()
     sim.step()
     sim.step()
-    sim.step()
-    sim.step()
-    sim.step()
-    
