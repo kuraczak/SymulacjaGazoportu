@@ -64,7 +64,6 @@ def getAdjacentSpaces(maze, space, visited):
 
     final = list()
     for i in spaces:
-        print('maze {}'.format(maze))
         if maze[i[0]][i[1]] != (2 or 3 or 4 or 5) and i not in visited:
             final.append(i)
     return final

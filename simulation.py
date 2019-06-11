@@ -42,5 +42,6 @@ if __name__ == '__main__':
     sim = Simulation(maze, 1)
     sim.step()
     sim.step()
+    sim.step()
 
     
