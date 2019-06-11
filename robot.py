@@ -24,7 +24,7 @@ class Robot:
     def next_step(self):
         try:
             for i in range(self.speed):
-                self.pos = self.current_path.pop(0)
+                self.pos = self.current_path.pop(1)
                 self.steps += 1
                 self.battery -= 1
         except IndexError:
@@ -35,12 +35,17 @@ class Robot:
         if len(self.visited_points) != len(self.checkpoints):
             next_point = self.checkpoints[len(self.visited_points)]
             next_point = (next_point.x, next_point.y)
+            print(self.pos[0])
+            print("punkt")
+            print(self.pos, next_point, self.start_position)
             path_to_point = bfs.BFS(self.pos, next_point, self.map)
             path_to_battery = bfs.BFS(next_point, self.start_position, self.map)
 
             if len(path_to_battery) + len(path_to_point) < self.battery:
+                print("tutaj")
                 self.current_path = path_to_point
             else:
+                print("tam")
                 self.current_path = bfs.BFS(self.pos, self.start_position,map)
 
     def __eq__(self, other):

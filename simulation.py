@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from IPython import display
+#import seaborn as sns
+#import matplotlib.pyplot as plt
+#from IPython import display
 import time
 import pkt2robotMatrix
 
@@ -42,5 +42,8 @@ if __name__ == '__main__':
     sim = Simulation(maze, 1)
     sim.step()
     sim.step()
-
+    sim.step()
+    sim.step()
+    sim.step()
+    sim.step()
     
