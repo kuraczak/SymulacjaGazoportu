@@ -3,17 +3,15 @@ import numpy as np
 # from pkg.Points import *
 import Points
 
-def pkt2robotMatrix(csvmap, n):
+def pkt2robotMatrix(data, n):
     # divides csv generated matrix into n slices for n robots
     checkpointList = []
     chargeList = []
     robotList = []
     checkpointIndex = 0
     chargeIndex = 0
-    data = pd.read_csv(csvmap)
     rowIndex = 0
-    matrix = data.values
-    for r in matrix:
+    for r in data:
         for c in r:
             row = list(r)
             if c == 8:
