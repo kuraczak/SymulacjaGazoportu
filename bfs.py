@@ -122,8 +122,8 @@ def findEnd(maze):
 
 
 # maze = pd.read_csv('mapka_s101.csv').values
-# startPoint = (278, 70)#(70, 278)
-# endPoint = (281, 9)#(9, 281)
+# startPoint = (70, 278)
+# endPoint = (9, 281)
 # # startPoint = findStart(maze)
 # # endPoint = findEnd(maze)
 # print(startPoint)

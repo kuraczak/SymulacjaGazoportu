@@ -28,7 +28,7 @@ class Robot:
                 self.steps += 1
                 self.battery -= 1
         except IndexError:
-            self.calculate_path2()
+            self.calculate_path()
     
     def calculate_path2(self):
         for point in self.checkpoints:
@@ -37,15 +37,11 @@ class Robot:
     def calculate_path(self):
         if len(self.visited_points) != len(self.checkpoints):
             next_point = self.checkpoints[len(self.visited_points)]
-<<<<<<< HEAD
             next_point = (next_point.x, next_point.y)
             print(self.pos[0])
             print("punkt")
             print(self.pos, next_point, self.start_position)
-=======
-            next_point = (next_point.y, next_point.x)
-            print('next point {} value {}'.format(next_point, self.map[next_point[0]][next_point[1]]))
->>>>>>> 1f4119dcc677a35b58543d3da62031b85a792f6f
+
             path_to_point = bfs.BFS(self.pos, next_point, self.map)
             path_to_battery = bfs.BFS(next_point, self.start_position, self.map)
 
