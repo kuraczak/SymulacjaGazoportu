@@ -1,14 +1,21 @@
 import bfs
+import numpy as np
+
+class Chargepoint:
+    def __init__(self, index=0, coord_x=0, coord_y=0):
+        self.x = coord_x
+        self.y = coord_y
+        self.index = index
 
 class Robot:
-    def __init__(self, speed, battery, map, start_position, robotId=0, chargePoint=Chargepoint()):
+    def __init__(self, speed, battery, map, start_position, robotId=0, chargePoint=Chargepoint(), checkpoints = []):
         self.index = robotId
         self.speed = speed
         self.battery = battery
         self.start_position = start_position
         self.chargePoint = chargePoint
         self.pos = start_position
-        self.checkpoints = []
+        self.checkpoints = checkpoints
         self.current_path = []
         self.steps = 0
         self.map = map
@@ -22,24 +29,19 @@ class Robot:
                 self.battery -= 1
         except IndexError:
             self.calculate_path()
+            print('current path {}'.format(self.current_path))
     
     def calculate_path(self):
         if len(self.visited_points) != len(self.checkpoints):
             next_point = self.checkpoints[len(self.visited_points)]
-            path_to_point = bfs.BFS(self.pos, next_point, map)
-            path_to_battery = bfs.BFS(next_point, self.start_position, map)
+            next_point = (next_point.x, next_point.y)
+            path_to_point = bfs.BFS(self.pos, next_point, self.map)
+            path_to_battery = bfs.BFS(next_point, self.start_position, self.map)
 
             if len(path_to_battery) + len(path_to_point) < self.battery:
                 self.current_path = path_to_point
             else:
                 self.current_path = bfs.BFS(self.pos, self.start_position,map)
-
-
-class Chargepoint:
-    def __init__(self, index=0, coord_x=0, coord_y=0):
-        self.x = coord_x
-        self.y = coord_y
-        self.index = index
 
     def __eq__(self, other):
         if other.x == self.x & other.y == self.y:

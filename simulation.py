@@ -7,21 +7,14 @@ import time
 import pkt2robotMatrix
 
 class Simulation:
-    def __init__(self, mapMatrix, robotsCount, stationsCount, robotSpeed, robotBaterry, timestamp):
-        
+    def __init__(self, mapMatrix, robotsCount):
         self.mapMatrix = mapMatrix
         self.robotsCount = robotsCount
-        self.stationsCount = stationsCount
-        self.timestamp = timestamp
-
         self.simulationTime = 0
-        self.robots = [] 
-        self.robotStartPositions = pkt2robot(self.mapMatrix,self.robotsCount,self.stationsCount)
- 
-        for x, y in self.robotStartPositions:
-            self.robots[i] = Robot(robotSpeed,robotBaterry,self.mapMatrix,[x,y])
+        self.robots = pkt2robotMatrix.pkt2robotMatrix(self.mapMatrix, robotsCount)
 
     def show(self):
+        pass
         #tutaj Grzesiu wyswietla
 
     def checkIfReady(self):
@@ -33,16 +26,21 @@ class Simulation:
     #def report() - Domi napisała
     
     def step(self):
-        result = checkIfReady()
-        while(!ready):
-            show()
+        result = self.checkIfReady()
+        print('result {}'.format(result))
+        if result:
+            self.show()
             for robot in self.robots:
+                print('before {}'.format(robot.pos))
                 robot.next_step()
-                sleep(1)
+                print('after {}'.format(robot.pos))
+                time.sleep(1)
                 self.simulationTime += 1
 
 if __name__ == '__main__':
     maze = pd.read_csv('mapka_s101.csv').values
-    
+    sim = Simulation(maze, 1)
+    sim.step()
+    sim.step()
 
-    sim = Simulation()
+    

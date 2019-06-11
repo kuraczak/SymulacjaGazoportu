@@ -40,6 +40,6 @@ def pkt2robotMatrix(data, n):
 
     iterator = 0
     for k in splitArray:
-        robotList.append(robot.Robot(1, 200, data, k[centerIndex].chargePoint, iterator, k[centerIndex].chargePoint)
+        robotList.append(robot.Robot(1, 200, data, (k[centerIndex].chargePoint.x, k[centerIndex].chargePoint.y) , iterator, k[centerIndex].chargePoint, k))
         iterator = iterator + 1
     return robotList

@@ -1,1 +1,5 @@
 .directory
+.vscode/launch.json
+__pycache__/bfs.cpython-37.pyc
+__pycache__/pkt2robotMatrix.cpython-37.pyc
+__pycache__/robot.cpython-37.pyc
