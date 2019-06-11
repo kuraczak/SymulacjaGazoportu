@@ -7,7 +7,7 @@ class Robot:
         self.battery = battery
         self.start_position = start_position
         self.chargePoint = chargePoint
-        self.pos = (0, 0)
+        self.pos = start_position
         self.checkpoints = []
         self.current_path = []
         self.steps = 0

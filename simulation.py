@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from IPython import display
+import time
+import pkt2robotMatrix
+
 class Simulation:
     def __init__(self, mapMatrix, robotsCount, stationsCount, robotSpeed, robotBaterry, timestamp):
         
@@ -32,3 +40,9 @@ class Simulation:
                 robot.next_step()
                 sleep(1)
                 self.simulationTime += 1
+
+if __name__ == '__main__':
+    maze = pd.read_csv('mapka_s101.csv').values
+    
+
+    sim = Simulation()
